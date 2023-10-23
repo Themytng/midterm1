@@ -4,30 +4,27 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
-    public float moveSpeed = 4f;
-    Rigidbody2D rb;
-    Ship target;
-    bool facingUp = false;
+    private GameObject player;
+    private Rigidbody2D rb;
+    public float force;
 
     // Start is called before the first frame update
     void Start()
     {
-        Fire rate = 1f;
-        next fire = Time.time;
+        rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        Vector3 direction = player.transform.position - transform.position;
+        rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckIfTimeToFire();  
-    }
 
-    void CheckIfTimeToFire()
-    {
-        if (Time.time > nextFire)
-        {
-            Instantiate(bullet, transform.position, Quaternion.identity);
-            nextFire = Time.time + fireRate;
-        }
     }
 }
+
+
+
+
