@@ -29,20 +29,20 @@ public class Shooting : MonoBehaviour
         {
             if (timer > 1.5)
             {
-                shoot();
+                shoot(); //when distance is more than 7, switch to stream-type fire
             }
         }
 
        else if(timer > 2)
         {
             timer = 0;
-            shoot();
+            shoot(); //passive bullets every 2 seconds
         }
     }
 
     void shoot()
     {
-        Instantiate(bullet, BulletPos.position, Quaternion.identity);
+        Instantiate(bullet, BulletPos.position, Quaternion.identity); //actually fires the prefab bullet
     }
 
     void OnTriggerEnter2D(Collider2D other)

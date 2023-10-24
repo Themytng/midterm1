@@ -27,11 +27,11 @@ public class Fire : MonoBehaviour
 
         if (timer > 3)
         {
-            Destroy(gameObject);
+            Destroy(gameObject); //destroys the bullet sprite after 3 seconds
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other) //destroys object that hit and loads a new scene
     {
         if (other.gameObject.CompareTag("Player"))
         {
