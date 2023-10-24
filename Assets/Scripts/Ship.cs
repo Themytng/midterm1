@@ -27,7 +27,7 @@ public class Ship : MonoBehaviour
         float v = Input.GetAxis("Vertical");
 
         Vector3 tempVect = new Vector3(h, v, 0);
-        tempVect = tempVect.normalized * speed * Time.deltaTime;
+        tempVect = tempVect.normalized * speed * Time.deltaTime; //lines of code meant to get the ship moving with the arrow keys; a lot of trial and error came here
         rb.MovePosition(rb.transform.position + tempVect);
     }
 
