@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ship : MonoBehaviour
 {
@@ -28,6 +29,14 @@ public class Ship : MonoBehaviour
         Vector3 tempVect = new Vector3(h, v, 0);
         tempVect = tempVect.normalized * speed * Time.deltaTime;
         rb.MovePosition(rb.transform.position + tempVect);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Obstacle")
+        {
+            SceneManager.LoadScene("BOOOM.");
+        }
     }
 }
 
