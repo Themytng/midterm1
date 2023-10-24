@@ -25,7 +25,7 @@ public class Fire : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer > 3)
+        if (timer > 2)
         {
             Destroy(gameObject); //destroys the bullet sprite after 3 seconds
         }
